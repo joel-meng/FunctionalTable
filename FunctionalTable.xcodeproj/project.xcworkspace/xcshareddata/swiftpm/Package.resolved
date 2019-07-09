@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DeepDiff",
+        "repositoryURL": "https://github.com/onmyway133/DeepDiff.git",
+        "state": {
+          "branch": null,
+          "revision": "9d5c67c58b9f06c0c638bd98ee4093abbe4a08a1",
+          "version": "2.3.0"
+        }
+      },
+      {
+        "package": "Reflex",
+        "repositoryURL": "https://github.com/joel-meng/Reflex.git",
+        "state": {
+          "branch": null,
+          "revision": "3adf3d0fb2b284098e4b10dfab5548bdc5ad2cf3",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
