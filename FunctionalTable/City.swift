@@ -16,23 +16,3 @@ struct City {
     let long: Float
     let shortDescription: String
 }
-
-extension City: Comparable {
-    static func < (lhs: City, rhs: City) -> Bool {
-        return lhs.name < rhs.name
-    }
-}
-
-extension City: Hashable {}
-extension City: DiffAware {
-    var diffId: City {
-        return self
-    }
-    
-    static func compareContent(_ a: City, _ b: City) -> Bool {
-        return a == b
-    }
-    
-    typealias DiffId = Self
-}
-
