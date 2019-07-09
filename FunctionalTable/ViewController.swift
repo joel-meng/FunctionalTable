@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
-    var items: [City] = cities()
+    var items: [City] = cities().sorted(by: <)
     
     override func viewDidLoad() {
         super.viewDidLoad()
