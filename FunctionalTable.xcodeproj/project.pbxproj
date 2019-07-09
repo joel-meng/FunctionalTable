@@ -15,6 +15,8 @@
 		DB18A55C22D41F500021A043 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB18A55A22D41F500021A043 /* LaunchScreen.storyboard */; };
 		DB18A56722D41F500021A043 /* FunctionalTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB18A56622D41F500021A043 /* FunctionalTableTests.swift */; };
 		DB8BD05622D42D0B00C014A3 /* Reflex in Frameworks */ = {isa = PBXBuildFile; productRef = DB8BD05522D42D0B00C014A3 /* Reflex */; };
+		DB8BD05822D43A3F00C014A3 /* DataGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD05722D43A3F00C014A3 /* DataGen.swift */; };
+		DB8BD05A22D43A5000C014A3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD05922D43A5000C014A3 /* City.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		DB18A56222D41F500021A043 /* FunctionalTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunctionalTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB18A56622D41F500021A043 /* FunctionalTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalTableTests.swift; sourceTree = "<group>"; };
 		DB18A56822D41F500021A043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB8BD05722D43A3F00C014A3 /* DataGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGen.swift; sourceTree = "<group>"; };
+		DB8BD05922D43A5000C014A3 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 		DB18A54E22D41F4E0021A043 /* FunctionalTable */ = {
 			isa = PBXGroup;
 			children = (
+				DB8BD05922D43A5000C014A3 /* City.swift */,
+				DB8BD05722D43A3F00C014A3 /* DataGen.swift */,
 				DB18A54F22D41F4E0021A043 /* AppDelegate.swift */,
 				DB18A55122D41F4E0021A043 /* SceneDelegate.swift */,
 				DB18A55322D41F4E0021A043 /* ViewController.swift */,
@@ -208,6 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8BD05822D43A3F00C014A3 /* DataGen.swift in Sources */,
+				DB8BD05A22D43A5000C014A3 /* City.swift in Sources */,
 				DB18A55422D41F4E0021A043 /* ViewController.swift in Sources */,
 				DB18A55022D41F4E0021A043 /* AppDelegate.swift in Sources */,
 				DB18A55222D41F4E0021A043 /* SceneDelegate.swift in Sources */,
