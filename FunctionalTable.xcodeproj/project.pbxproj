@@ -17,6 +17,8 @@
 		DB8BD05622D42D0B00C014A3 /* Reflex in Frameworks */ = {isa = PBXBuildFile; productRef = DB8BD05522D42D0B00C014A3 /* Reflex */; };
 		DB8BD05822D43A3F00C014A3 /* DataGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD05722D43A3F00C014A3 /* DataGen.swift */; };
 		DB8BD05A22D43A5000C014A3 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD05922D43A5000C014A3 /* City.swift */; };
+		DB8BD05D22D43AE800C014A3 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD05B22D43AE800C014A3 /* CityTableViewCell.swift */; };
+		DB8BD05E22D43AE800C014A3 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB8BD05C22D43AE800C014A3 /* CityTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		DB18A56822D41F500021A043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB8BD05722D43A3F00C014A3 /* DataGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGen.swift; sourceTree = "<group>"; };
 		DB8BD05922D43A5000C014A3 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		DB8BD05B22D43AE800C014A3 /* CityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		DB8BD05C22D43AE800C014A3 /* CityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 		DB18A54E22D41F4E0021A043 /* FunctionalTable */ = {
 			isa = PBXGroup;
 			children = (
+				DB8BD05B22D43AE800C014A3 /* CityTableViewCell.swift */,
+				DB8BD05C22D43AE800C014A3 /* CityTableViewCell.xib */,
 				DB8BD05922D43A5000C014A3 /* City.swift */,
 				DB8BD05722D43A3F00C014A3 /* DataGen.swift */,
 				DB18A54F22D41F4E0021A043 /* AppDelegate.swift */,
@@ -196,6 +202,7 @@
 			files = (
 				DB18A55C22D41F500021A043 /* LaunchScreen.storyboard in Resources */,
 				DB18A55922D41F500021A043 /* Assets.xcassets in Resources */,
+				DB8BD05E22D43AE800C014A3 /* CityTableViewCell.xib in Resources */,
 				DB18A55722D41F4E0021A043 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8BD05D22D43AE800C014A3 /* CityTableViewCell.swift in Sources */,
 				DB8BD05822D43A3F00C014A3 /* DataGen.swift in Sources */,
 				DB8BD05A22D43A5000C014A3 /* City.swift in Sources */,
 				DB18A55422D41F4E0021A043 /* ViewController.swift in Sources */,
