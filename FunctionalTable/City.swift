@@ -23,3 +23,18 @@ extension City: Comparable {
         return lhs.name < rhs.name
     }
 }
+
+// MARK: - Now city is difference aware
+
+extension City: Hashable {}
+extension City: DiffAware {
+	var diffId: City {
+		return self
+	}
+	
+	static func compareContent(_ a: City, _ b: City) -> Bool {
+		return a == b
+	}
+	
+	typealias DiffId = Self
+}

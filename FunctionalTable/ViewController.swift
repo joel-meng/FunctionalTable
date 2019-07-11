@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reflex
 
 class ViewController: UIViewController {
 	
@@ -14,61 +15,42 @@ class ViewController: UIViewController {
 
 	private var searchDelegate: UISearchBarDelegate!
 	
+	private var tableUpdater: (([City]) -> Void)!
+	
+	private var items: [City] = cities()
+	
     @IBOutlet var tableView: UITableView!
-	
-	private lazy var originalItems: [City] = cities()
-	
-    private lazy var tableItems: [City] = originalItems.sorted(by: <)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		setupTable()
+		
+		// NOTE: - Update table
+		tableUpdater(items.sorted(by: <))
+		
 		setupAddCityBarButton()
-		setupTableView(tableView)
 		setupSearch()
     }
-    
-    // MARK: - TableView
-    
-    private func setupTableView(_ tableView: UITableView) {
-        let nib = UINib(nibName: "CityTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "CityTableViewCell")
-        tableView.dataSource = self
-        tableView.delegate = self
+	
+	private func setupTable() {
+		// NOTE: - Easy setup
 		
-		// FIXME: - using items
-
-		tableView.reloadData()
-    }
-}
-
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    // MARK: - Data source
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableItems.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as? CityTableViewCell else {
-            return UITableViewCell(style: .default, reuseIdentifier: "SomeCell")
-        }
-        
-        let item = tableItems[indexPath.row]
-        cell.config(item)
-        return cell
-    }
-    
-    // MARK: - Delegate
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let item = tableItems[indexPath.row]
-        let alert = UIAlertController(title: "Hola \(item.name)", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
+		// Never ask for registering a cell for `City`
+		// Never ask for nib files or `cellIdentifier` for a cell
+		// Never tell table how to populate a cell for City
+		
+		tableUpdater = customCellDataUpdater(for: tableView) { [weak self] (city, cell: CityTableViewCell) in
+			
+			// Just tell cell what to do with some context (e.g. `self` here)
+			//
+			cell.didTap = {
+				let alerter = UIAlertController(title: "Hola \(city.name)", message: nil, preferredStyle: .alert)
+				alerter.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+				self?.present(alerter, animated: true, completion: nil)
+			}
+		}
+	}
 }
 
 extension ViewController {
@@ -99,13 +81,11 @@ extension ViewController {
 	@objc
 	fileprivate func addCityAction() {
 		guard let newCity = cityAdder() else { return }
+		items.append(newCity)
 		
-		// FIXME: - Updating items
+		// NOTE: - Update table
 		
-		originalItems.append(newCity)
-		tableItems = originalItems.sorted(by: <)
-		
-		tableView.reloadData()
+		tableUpdater(items.sorted(by: <))
 	}
 }
 
@@ -119,20 +99,16 @@ extension ViewController {
 		self.searchDelegate = SearchDelegate { [weak self] text in
 			guard let self = self else { return }
 			if text.isEmpty {
-				// FIXME: - Updating items
-				self.tableItems = self.originalItems.sorted(by: <)
-				self.tableView.reloadData()
+				// NOTE: - Update table
+				self.tableUpdater(self.items.sorted(by: <))
 				return
 			}
 			
-			let filteredCities = self.tableItems.lazy.filter { (city) -> Bool in
+			let filteredCities = self.items.lazy.filter { (city) -> Bool in
 				city.shortDescription.contains(text) || city.name.contains(text)
 			}.sorted(by: <)
-			
-			// FIXME: - Updating items
-			
-			self.tableItems = filteredCities
-			self.tableView.reloadData()
+			// NOTE: - Update table
+			self.tableUpdater(filteredCities)
 		}
 		navigationItem.searchController = searchController(delegate: self.searchDelegate)
 	}

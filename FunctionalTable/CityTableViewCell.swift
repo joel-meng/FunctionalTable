@@ -9,7 +9,7 @@
 import UIKit
 import Reflex
 
-class CityTableViewCell: UITableViewCell {
+class CityTableViewCell: ReflexTableViewCell<City> {
 
     @IBOutlet var titleLabel: UILabel!
     
@@ -30,7 +30,7 @@ class CityTableViewCell: UITableViewCell {
         descriptionLabel.text = nil
     }
     
-    func config(_ city: City) {
+	override func config(_ city: City) {
         titleLabel.text = city.name
         detailLabel.text = city.country
         descriptionLabel.text = city.shortDescription
